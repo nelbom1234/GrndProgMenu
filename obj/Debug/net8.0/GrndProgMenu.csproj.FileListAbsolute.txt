@@ -1,0 +1,15 @@
+/home/nelbom1234/Documents/H1/GrndProgMenu/bin/Debug/net8.0/GrndProgMenu
+/home/nelbom1234/Documents/H1/GrndProgMenu/bin/Debug/net8.0/GrndProgMenu.deps.json
+/home/nelbom1234/Documents/H1/GrndProgMenu/bin/Debug/net8.0/GrndProgMenu.runtimeconfig.json
+/home/nelbom1234/Documents/H1/GrndProgMenu/bin/Debug/net8.0/GrndProgMenu.dll
+/home/nelbom1234/Documents/H1/GrndProgMenu/bin/Debug/net8.0/GrndProgMenu.pdb
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.GeneratedMSBuildEditorConfig.editorconfig
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.AssemblyInfoInputs.cache
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.AssemblyInfo.cs
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.csproj.CoreCompileInputs.cache
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.sourcelink.json
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.dll
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/refint/GrndProgMenu.dll
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.pdb
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/GrndProgMenu.genruntimeconfig.cache
+/home/nelbom1234/Documents/H1/GrndProgMenu/obj/Debug/net8.0/ref/GrndProgMenu.dll
