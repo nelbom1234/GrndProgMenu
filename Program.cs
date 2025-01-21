@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.Intrinsics.X86;
+﻿using System.Text.RegularExpressions;
 
 void MainMenu() {
     Console.Clear();
@@ -78,32 +76,39 @@ void main() {
     uint menuValg;
     bool shouldExit = false;
 
+    // hovedmenu loop
     while (!shouldExit) {
-        MainMenu();
-        result = Console.ReadLine();
+        MainMenu(); //viser hovedmenuen
+        result = Console.ReadLine(); // læser brugerens input
+
+        //håndterer null input
         if (result == null) {
             Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
             Console.WriteLine("null");
             Console.ReadKey();
             continue;
         }
+
+        //forsøger at konvertere input til et positivt heltal
         if (!uint.TryParse(result, out menuValg)) {
-            Console.WriteLine("Inputtet skal være et positivet heltal. Tryk enter for at prøve igen.");
+            Console.WriteLine("Inputtet skal være et positivt heltal. Tryk enter for at prøve igen.");
             Console.WriteLine(result);
             Console.ReadKey();
             continue;
         }
+        // Switch-case til håndtering af brugerens menuvalg
         switch(menuValg) {
             case 1:
-                A();
+                A(); // Kalder funktion A
                 break;
             case 2:
-                B();
+                B(); // Kalder funktion B
                 break;
             case 3:
+                C(); // Kalder funktion C
                 break;
             case 4:
-                shouldExit = true;
+                shouldExit = true; // Afslutter programmet
                 break;
             default:
                 Console.WriteLine("Det er ikke et gyldigt input. tryk enter for at gå tilbage til menuen");
@@ -113,13 +118,14 @@ void main() {
     }
 }
 
+// Funktion for menu A
 void A() {
     string? result;
     uint menuValg;
     bool shouldExit = false;
 
     while (!shouldExit) {
-        AMenu();
+        AMenu(); // Viser menuen for A
         result = Console.ReadLine();
         if (result == null) {
             Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
@@ -193,7 +199,7 @@ void A() {
                 A20();
                 break;
             case 21:
-                shouldExit = true;
+                shouldExit = true; // Afslutter menu A
                 break;
             default:
                 Console.WriteLine("Det er ikke et gyldigt input. tryk enter for at gå tilbage til menuen");
@@ -202,6 +208,99 @@ void A() {
         }
     }
 }
+
+// Funktion for menu B
+void B() {
+    string? result;
+    uint menuValg;
+    bool shouldExit = false;
+
+    while (!shouldExit) {
+        BMenu(); // Viser menuen for B
+        result = Console.ReadLine();
+        if (result == null) {
+            Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        if (!uint.TryParse(result, out menuValg)) {
+            Console.WriteLine("Inputtet skal være et positivet heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        switch(menuValg) {
+            case 1:
+                B1();
+                break;
+            case 2:
+                B2();
+                break;
+            case 3:
+                B3();
+                break;
+            case 4:
+                B4();
+                break;
+            case 5:
+                B5();
+                break;
+            case 6:
+                B6();
+                break;
+            case 7:
+                B7();
+                break;
+            case 8:
+                B8();
+                break;
+            case 9:
+                B9();
+                break;
+            case 10:
+                B10();
+                break;
+            case 11:
+                B11();
+                break;
+            case 12:
+                B12();
+                break;
+            case 13:
+                B13();
+                break;
+            case 14:
+                B14();
+                break;
+            case 15:
+                B15();
+                break;
+            case 16:
+                B16();
+                break;
+            case 17:
+                B17();
+                break;
+            case 18:
+                B18();
+                break;
+            case 19:
+                B19();
+                break;
+            case 20:
+                B20();
+                break;
+            case 21:
+                shouldExit = true; // Afslutter menu B
+                break;
+            default:
+                Console.WriteLine("Det er ikke et gyldigt input. tryk enter for at gå tilbage til menuen");
+                Console.ReadKey();
+                continue;
+        }
+    }
+}
+
+void C() {}
 
 void A1() {
     Console.Clear();
@@ -719,95 +818,6 @@ void A20() {
 
 }
 
-void B() {
-    string? result;
-    uint menuValg;
-    bool shouldExit = false;
-
-    while (!shouldExit) {
-        BMenu();
-        result = Console.ReadLine();
-        if (result == null) {
-            Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
-            Console.ReadKey();
-            continue;
-        }
-        if (!uint.TryParse(result, out menuValg)) {
-            Console.WriteLine("Inputtet skal være et positivet heltal. Tryk enter for at prøve igen.");
-            Console.ReadKey();
-            continue;
-        }
-        switch(menuValg) {
-            case 1:
-                B1();
-                break;
-            case 2:
-                B2();
-                break;
-            case 3:
-                B3();
-                break;
-            case 4:
-                B4();
-                break;
-            case 5:
-                B5();
-                break;
-            case 6:
-                B6();
-                break;
-            case 7:
-                B7();
-                break;
-            case 8:
-                B8();
-                break;
-            case 9:
-                B9();
-                break;
-            case 10:
-                B10();
-                break;
-            case 11:
-                B11();
-                break;
-            case 12:
-                B12();
-                break;
-            case 13:
-                B13();
-                break;
-            case 14:
-                B14();
-                break;
-            case 15:
-                B15();
-                break;
-            case 16:
-                B16();
-                break;
-            case 17:
-                B17();
-                break;
-            case 18:
-                B18();
-                break;
-            case 19:
-                B19();
-                break;
-            case 20:
-                B20();
-                break;
-            case 21:
-                shouldExit = true;
-                break;
-            default:
-                Console.WriteLine("Det er ikke et gyldigt input. tryk enter for at gå tilbage til menuen");
-                Console.ReadKey();
-                continue;
-        }
-    }
-}
 
 void B1() {
     string? result;
@@ -1054,7 +1064,7 @@ void B6() {
 }
 
 void B7() {
-    // TODO
+    // ved ikke rigtig hvad den her opgave vil have mig til
 }
 
 void B8() {
@@ -1215,20 +1225,144 @@ void B12() {
     Console.ReadKey();
 }
 
-void B13() {}
+void B13() {
+    //aner ikke hvad man skal her
+}
 
-void B14() {}
+void B14() {
+    int a = 5;
+    int b = 8;
 
-void B15() {}
+    Firkant(a,b);
+    Trekant(a,b);
+    cirkel(a);
+    Console.ReadKey();
 
-void B16() {}
+    void Firkant(int højde, int bredde) {
+        Console.WriteLine($"Firkant: areal: {højde*bredde}, omkreds: {2*højde + 2*bredde}");
+    }
+    void Trekant(int højde, int grundlinje) {
+        Console.WriteLine($"Trekant: Areal: {0.5*højde*grundlinje}, omkreds: {3*grundlinje}");
+    }
+    void cirkel(int radius) {
+        Console.WriteLine($"Cirkel: Areal: {Math.PI*Math.Pow(radius,2)}, ommkreds: {2*Math.PI*radius}");
+    }
+}
 
-void B17() {}
+void B15() {
+    int[] budget = [1000, 500, 720, 1200, 850, 1100, 1400, 980, 940, 830, 1240, 1060];
+    int sum = 0;
+    Console.Write("Budget: ");
+    foreach(int tal in budget) {
+        Console.Write(tal + " ");
+        sum += tal;
+    }
+    Console.WriteLine();
+    Console.WriteLine($"gennemsnit: {sum/12.0}");
+    Console.ReadKey();
+}
 
-void B18() {}
+void B16() {
+    string? result;
+    int[] tal;
+    
+    Console.Clear();
 
-void B19() {}
+    while (true) {
+        Console.WriteLine("Indtast en serie af tal med mellemrum imellem");
+        result = Console.ReadLine();
+        if (result == null) {
+            Console.WriteLine("Du skal give et input. Tryk enter for at prøve igen");
+            Console.ReadKey();
+            continue;
+        }
+        string[] input = result.Split(" ");
+        tal = new int[input.Length];
+        try {
+            for (int i = 0; i < input.Length; i++) {
+                tal[i] = int.Parse(input[i]);
+            }
+        }
+        catch {
+            Console.WriteLine("Du må kun skrive tal");
+            continue;
+        }
+        Array.Sort(tal);
+        Array.Reverse(tal);
+        break;
+    }
+    foreach (int t in tal) {
+        Console.WriteLine(t);
+    }
+    Console.ReadKey();
 
-void B20() {}
+}
+
+void B17() {
+    string[] kontakter = [
+        "john", 
+        "oliver", 
+        "lui",
+        "rasmus", 
+        "christian", 
+        "nicolai", 
+        "sebastian", 
+        "jørgen", 
+        "bo",
+        "jens",
+        "jesper",
+        "asger",
+        "nicholas",
+        "allan",
+        "kasper",
+        "simon",
+        "daniel",
+        "mathias",
+        "patrick",
+        "iben",
+        "lone",
+        "eyup",
+        "louis"
+    ];
+    Array.Sort(kontakter);
+    foreach(string kontakt in kontakter) {
+        Console.WriteLine(kontakt);
+    }
+    Console.ReadLine();
+}
+
+void B18() {
+    string regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    string email = "nine4@elev.tec.dk";
+    if (Regex.Match(email, regex).Success) {
+        Console.WriteLine("Det er en gyldig email");
+    }
+    else Console.WriteLine("Det er ikke en gyldig email");
+    Console.ReadKey();
+
+}
+
+void B19() {
+    fib(100);
+
+    void fib(int maks) {
+        int a = 1;
+        int b = 1;
+        int c = a+b;
+        Console.WriteLine(a);
+        Console.WriteLine(b);
+        while (c <= maks) {
+            Console.WriteLine(c);
+            int temp = c;
+            c = b+c;
+            b = temp;
+        }
+        Console.ReadKey();
+    }
+}
+
+void B20() {
+    //har ikke nogen opgave at kommentere
+}
 
 main();
