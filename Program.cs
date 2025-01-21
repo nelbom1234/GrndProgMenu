@@ -98,6 +98,7 @@ void main() {
                 A();
                 break;
             case 2:
+                B();
                 break;
             case 3:
                 break;
@@ -717,5 +718,517 @@ void A20() {
     Console.ReadKey();
 
 }
+
+void B() {
+    string? result;
+    uint menuValg;
+    bool shouldExit = false;
+
+    while (!shouldExit) {
+        BMenu();
+        result = Console.ReadLine();
+        if (result == null) {
+            Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        if (!uint.TryParse(result, out menuValg)) {
+            Console.WriteLine("Inputtet skal være et positivet heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        switch(menuValg) {
+            case 1:
+                B1();
+                break;
+            case 2:
+                B2();
+                break;
+            case 3:
+                B3();
+                break;
+            case 4:
+                B4();
+                break;
+            case 5:
+                B5();
+                break;
+            case 6:
+                B6();
+                break;
+            case 7:
+                B7();
+                break;
+            case 8:
+                B8();
+                break;
+            case 9:
+                B9();
+                break;
+            case 10:
+                B10();
+                break;
+            case 11:
+                B11();
+                break;
+            case 12:
+                B12();
+                break;
+            case 13:
+                B13();
+                break;
+            case 14:
+                B14();
+                break;
+            case 15:
+                B15();
+                break;
+            case 16:
+                B16();
+                break;
+            case 17:
+                B17();
+                break;
+            case 18:
+                B18();
+                break;
+            case 19:
+                B19();
+                break;
+            case 20:
+                B20();
+                break;
+            case 21:
+                shouldExit = true;
+                break;
+            default:
+                Console.WriteLine("Det er ikke et gyldigt input. tryk enter for at gå tilbage til menuen");
+                Console.ReadKey();
+                continue;
+        }
+    }
+}
+
+void B1() {
+    string? result;
+    uint operation;
+    int first;
+    int second;
+
+
+    while (true) {
+        Console.Clear();
+        Console.WriteLine("skriv tallet for den operation du vil udføre");
+        Console.WriteLine("1. addition");
+        Console.WriteLine("2. subtraktion");
+        Console.WriteLine("3. multiplikation");
+        Console.WriteLine("4. division");
+        Console.WriteLine("5. modulus");
+        Console.WriteLine("6. exponentiering");
+        result = Console.ReadLine();
+
+        if (result == null) {
+                Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+        }
+        if (!uint.TryParse(result, out operation)) {
+            Console.WriteLine("Inputtet skal være et positibt heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        if (operation == 0 || operation > 6) {
+            Console.WriteLine("du skal vælge et tal mellem 1 og 4. tryk enter for at prøve igen");
+            Console.ReadKey();
+            continue;
+        }
+        break;
+
+    }
+
+    while (true) {
+        Console.WriteLine("Indtast det første tal");
+        result = Console.ReadLine();
+        if (result == null) {
+                Console.WriteLine("Inputtet skal være et heltal. tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+        }
+        if (!int.TryParse(result, out first)) {
+            Console.WriteLine("Inputtet skal være et heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        break;
+    }
+    while (true) {
+        Console.WriteLine("Indtast det andet tal");
+        result = Console.ReadLine();
+        if (result == null) {
+                Console.WriteLine("Inputtet skal være et heltal. tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+        }
+        if (!int.TryParse(result, out second)) {
+            Console.WriteLine("Inputtet skal være et heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+        break;
+    }
+
+    switch(operation) {
+        case 1:
+            Console.WriteLine($"Addition: {first+second}");
+            break;
+        case 2:
+            Console.WriteLine($"subtraktion: {first-second}");
+            break;
+        case 3:
+            Console.WriteLine($"multiplikation: {first*second}");
+            break;
+        case 4:
+            if (second == 0) {
+                Console.WriteLine("Kan ikke vise division fordi det andet tal er 0");
+            }
+            else {
+                Console.WriteLine($"division: {first/second}");
+            }
+            break;
+        case 5:
+            Console.WriteLine($"modulus: {first % second}");
+            break;
+        case 6:
+            Console.WriteLine($"exponentiering: {Math.Pow(first, second)}");
+            break;
+    }
+    Console.ReadKey();
+}
+
+void B2() {
+    Console.Clear();
+
+    Random r = new Random();
+    int[] arr = new int[10];
+    for (int i = 0; i < 10; i++) {
+        arr[i] = r.Next(0,100);
+    }
+
+    Console.Write($"tilfældigt array:");
+    foreach (int i in arr) Console.Write(i + " ");
+    Console.WriteLine("");
+    Array.Sort(arr);
+    Console.Write($"sorteret array:");
+    foreach (int i in arr) Console.Write(i + " "); 
+    Console.WriteLine("");
+    Console.ReadKey();
+}
+
+void B3() {
+    Console.Clear();
+    Console.WriteLine("Indtast en tekst:");
+    string input = Console.ReadLine();
+
+    if (IsPalindrome(input)){
+        Console.WriteLine("Teksten er et palindrom.");
+    }
+
+    else {
+        Console.WriteLine("Teksten er ikke et palindrom.");
+    }
+    Console.ReadKey();
+
+    bool IsPalindrome(string text){
+        string texter = text.ToLower();
+        string checker = "abcdefghijklmnopqrstuvwxyzæøå";
+        string trimmed = "";
+        foreach (char c in texter) {
+            if (checker.Contains(c)) {
+                trimmed += c;
+            }
+        }
+
+        int len = trimmed.Length;
+        string first = trimmed.Substring(0, len/2);
+        string second = trimmed.Substring(len-len/2,len/2);
+
+        char[] charArray = second.ToCharArray();
+        Array.Reverse(charArray);
+        second = new string(charArray);
+
+        if (first == second) {
+            return true;
+        }
+        return false;
+    }
+}
+
+void B4() {
+    Console.Clear();
+    int beløb = 100; // DKK
+    double sats = 7.5; // konvertering til EUR
+
+    double konverter(int beløb, double sats) {
+        return beløb / sats;
+    }
+
+    Console.WriteLine($"{beløb} DKK = {konverter(beløb, sats)} EUR");
+    Console.ReadKey();
+
+}
+
+void B5() {
+    Console.Clear();
+    int secret = 7;
+    string? result;
+    uint gæt;
+
+    while (true) {
+        Console.WriteLine("Gæt et tal mellem 1 og 10");
+        result = Console.ReadLine();
+        if (result == null) {
+            Console.WriteLine("Du skal skrive et tal mellem 1 og 10");
+            continue;
+        }
+        if (!uint.TryParse(result, out gæt)) {
+            Console.WriteLine("du skal skrive et tal mellem 1 og 10");
+            continue;
+        }
+        if (gæt == 0 || gæt > 10) {
+            Console.WriteLine("Du skal skrive et tal mellem 1 og 10");
+            continue;
+        }
+        if (gæt == secret) {
+            Console.WriteLine("Du gættede rigtigt!");
+            break;
+        }
+        if (secret > gæt) {
+            Console.WriteLine("højere");
+            continue;
+        }
+        else {
+            Console.WriteLine("lavere");
+            continue;
+        }
+    }
+    Console.ReadKey();
+}
+
+void B6() {
+    string[] kontakter = [
+        "john", 
+        "oliver", 
+        "lui",
+        "rasmus", 
+        "christian", 
+        "nicolai", 
+        "sebastian", 
+        "jørgen", 
+        "bo",
+        "jens",
+        "jesper",
+        "asger",
+        "nicholas",
+        "allan",
+        "kasper",
+        "simon",
+        "daniel",
+        "mathias",
+        "patrick",
+        "iben",
+        "lone",
+        "eyup",
+        "louis"
+    ];
+
+    int sider = (int)Math.Ceiling(kontakter.Length/10.0);
+
+    for (int i = 0; i < sider; i++) {
+        Console.Clear();
+        for (int j = 10*i; j < (10*(i+1) < kontakter.Length ? 10*(i+1) : kontakter.Length) ; j++) {
+            Console.WriteLine(kontakter[j]);
+        }
+        Console.WriteLine($"Side {i+1} af {sider}. tryk enter for at gå til næste side");
+        Console.ReadKey();
+    }
+}
+
+void B7() {
+    // TODO
+}
+
+void B8() {
+    void quadratic(int a, int b, int c) {
+        double first = (-b + Math.Sqrt(Math.Pow(b,2)- 4*a*c))/((double)2*a);
+        double second = (-b - Math.Sqrt(Math.Pow(b,2)- 4*a*c))/((double)2*a);
+        Console.WriteLine($"første løsning: {first}");
+        Console.WriteLine($"anden løsning: {second}");
+    }
+    quadratic(1,5,6);
+    Console.ReadKey();
+}
+
+void B9() {
+    int saldo = 1000;
+    string? result;
+    uint menuValg;
+    bool shouldExit = false;
+
+    while (!shouldExit) {
+        Console.Clear();
+        Console.WriteLine($"Din saldo er {saldo} kr.");
+        Menu();
+        result = Console.ReadLine();
+        if (result == null) {
+                Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+        }
+        if (!uint.TryParse(result, out menuValg)) {
+            Console.WriteLine("Inputtet skal være et positivt heltal. Tryk enter for at prøve igen.");
+            Console.ReadKey();
+            continue;
+        }
+
+        switch(menuValg) {
+            case 1:
+                Hæv();
+                break;
+            case 2:
+                indsæt();
+                break;
+            case 3:
+                shouldExit = true;
+                break;
+
+        }
+    }
+
+    void Menu() {
+        Console.WriteLine("skriv tallet for den handling du vil udføre");
+        Console.WriteLine("1. Hæv penge");
+        Console.WriteLine("2. indsæt penge");
+        Console.WriteLine("3. forlad banken");
+    }
+
+    void Hæv() {
+        uint mængde;
+        while (true) {
+            Console.WriteLine("Hvor meget vil du hæve");
+            result = Console.ReadLine();
+            if (result == null) {
+                    Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+                    Console.ReadKey();
+                    continue;
+            }
+            if (!uint.TryParse(result, out mængde)) {
+                Console.WriteLine("Inputtet skal være et positivt heltal. Tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+            }
+            if (mængde > saldo) {
+                Console.WriteLine("du kan ikke hæve mere end du har på kontoen");
+                continue;
+            }
+            saldo -= (int)mængde;
+            break;
+        }
+    }
+
+    void indsæt() {
+        uint mængde;
+        while (true) {
+            Console.WriteLine("Hvor meget vil du indsætte");
+            result = Console.ReadLine();
+            if (result == null) {
+                    Console.WriteLine("Inputtet skal være et positivt heltal. tryk enter for at prøve igen.");
+                    Console.ReadKey();
+                    continue;
+            }
+            if (!uint.TryParse(result, out mængde)) {
+                Console.WriteLine("Inputtet skal være et positivt heltal. Tryk enter for at prøve igen.");
+                Console.ReadKey();
+                continue;
+            }
+            saldo += (int)mængde;
+            break;
+        }
+    }
+
+}
+
+void B10() {
+    //mangler materiale fra lærer
+}
+
+void B11() {
+    Console.Clear();
+    string brugernavn = "nelbom1";
+    string adgangskode = "Tec123";
+    string? result;
+    bool korrekt = true;
+
+    for (int i = 0; i < 3; i++) {
+        while (true) {
+            Console.WriteLine("Indtast brugernavn");
+            result = Console.ReadLine();
+
+            if (result == null) {
+                Console.WriteLine("Du skal give et input. prøv igen");
+                continue;
+            }
+            if (result.ToLower() != brugernavn) {
+                korrekt = false;
+            }
+            break;
+        }
+
+        while (true) {
+            Console.WriteLine("Indtast adgangskode");
+            result = Console.ReadLine();
+
+            if (result == null) {
+                Console.WriteLine("Du skal give et input. prøv igen");
+                continue;
+            }
+            if (result != adgangskode) {
+                korrekt = false;
+            }
+            break;
+        }
+
+        if (korrekt) {
+            Console.WriteLine("Du er blevet logget ind");
+            Console.ReadKey();
+            return;
+        }
+        else {
+            Console.WriteLine($"Din login information var ikke korrekt. Du har {2-i} forsøg tilbage");
+            Console.ReadKey();
+        }
+    }
+}
+
+void B12() {
+    string text = File.ReadAllText("./test.txt");
+    Console.WriteLine($"Der er {text.Split(" ").Length} ord i filen");
+    Console.ReadKey();
+}
+
+void B13() {}
+
+void B14() {}
+
+void B15() {}
+
+void B16() {}
+
+void B17() {}
+
+void B18() {}
+
+void B19() {}
+
+void B20() {}
 
 main();
